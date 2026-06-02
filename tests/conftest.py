@@ -25,6 +25,8 @@
 #  under the License.
 from __future__ import annotations
 
+import superset.utils.flask_compat  # noqa: F401  # restore _app_ctx_stack for Flask 3
+
 import functools
 from typing import Any, Callable, TYPE_CHECKING
 from unittest.mock import MagicMock, Mock, PropertyMock

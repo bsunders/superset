@@ -21,6 +21,9 @@ from typing import Any, Callable, Optional
 
 import celery
 from flask import Flask
+
+import superset.utils.flask_compat  # noqa: F401  # restore _app_ctx_stack for Flask 3
+
 from flask_appbuilder import AppBuilder
 
 # Temporary fix for missing flask_appbuilder.utils.legacy module
