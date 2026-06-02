@@ -17,8 +17,20 @@
 from unittest.mock import Mock
 
 import sshtunnel
+from paramiko import RSAKey
 
 from superset.extensions.ssh import SSHManagerFactory
+
+
+def test_rsa_sha1_algorithms_disabled() -> None:
+    """CVE-2026-44405: SHA-1 based RSA algorithms must not be present."""
+    import superset.extensions.ssh  # noqa: F401 – triggers the runtime patch
+
+    assert "ssh-rsa" not in RSAKey.HASHES
+    assert "ssh-rsa-cert-v01@openssh.com" not in RSAKey.HASHES
+    # SHA-2 variants must still be available
+    assert "rsa-sha2-256" in RSAKey.HASHES
+    assert "rsa-sha2-512" in RSAKey.HASHES
 
 
 def test_ssh_tunnel_timeout_setting() -> None:

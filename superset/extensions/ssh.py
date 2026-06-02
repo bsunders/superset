@@ -30,6 +30,15 @@ from superset.utils.class_utils import load_class_from_name
 if TYPE_CHECKING:
     from superset.databases.ssh_tunnel.models import SSHTunnel
 
+# CVE-2026-44405 mitigation: remove SHA-1 based algorithms from RSA key
+# handling.  Paramiko <= 4.0.0 ships "ssh-rsa" (SHA-1) entries in
+# RSAKey.HASHES; paramiko 5.0.0 removes them.  Until the sshtunnel
+# dependency is compatible with paramiko >= 5, we apply the same patch
+# at runtime so that SHA-1 is never negotiated for RSA signatures.
+_SHA1_RSA_ALGORITHMS = ("ssh-rsa", "ssh-rsa-cert-v01@openssh.com")
+for _algo in _SHA1_RSA_ALGORITHMS:
+    RSAKey.HASHES.pop(_algo, None)
+
 
 class SSHManager:
     def __init__(self, app: Flask) -> None:
