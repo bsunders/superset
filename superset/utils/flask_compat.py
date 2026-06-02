@@ -27,6 +27,7 @@ in Flask-SQLAlchemy 3.0.
 
 Import this module before any ``flask_sqlalchemy`` or ``flask_babel`` import.
 """
+
 from __future__ import annotations
 
 import threading

@@ -22,7 +22,9 @@ from typing import Any, Callable, Optional
 import celery
 from flask import Flask
 
-import superset.utils.flask_compat  # noqa: F401  # restore _app_ctx_stack for Flask 3
+# isort: off
+import superset.utils.flask_compat  # noqa: F401  # must load before flask_sqlalchemy
+# isort: on
 
 from flask_appbuilder import AppBuilder
 
