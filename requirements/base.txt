@@ -274,10 +274,10 @@ packaging==25.0
     #   shillelagh
 pandas==2.1.4
     # via apache-superset (pyproject.toml)
-paramiko==3.5.1
+paramiko==5.0.0
     # via
     #   apache-superset (pyproject.toml)
-    #   sshtunnel
+    #   deepnote-sshtunnel
 parsedatetime==2.6
     # via apache-superset (pyproject.toml)
 pgsanity==0.2.9
@@ -419,7 +419,7 @@ sqlglot==30.8.0
     # via
     #   apache-superset (pyproject.toml)
     #   apache-superset-core
-sshtunnel==0.4.0
+deepnote-sshtunnel==1.0.0
     # via apache-superset (pyproject.toml)
 tabulate==0.10.0
     # via apache-superset (pyproject.toml)

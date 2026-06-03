@@ -643,11 +643,11 @@ pandas-gbq==0.19.1
     # via apache-superset
 parameterized==0.9.0
     # via apache-superset
-paramiko==3.5.1
+paramiko==5.0.0
     # via
     #   -c requirements/base-constraint.txt
     #   apache-superset
-    #   sshtunnel
+    #   deepnote-sshtunnel
 parsedatetime==2.6
     # via
     #   -c requirements/base-constraint.txt
@@ -997,7 +997,7 @@ sqloxide==0.1.51
     # via apache-superset
 sse-starlette==3.0.2
     # via mcp
-sshtunnel==0.4.0
+deepnote-sshtunnel==1.0.0
     # via
     #   -c requirements/base-constraint.txt
     #   apache-superset
