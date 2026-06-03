@@ -92,6 +92,8 @@ cryptography==46.0.7
     #   apache-superset (pyproject.toml)
     #   paramiko
     #   pyopenssl
+deepnote-sshtunnel==1.0.0
+    # via apache-superset (pyproject.toml)
 defusedxml==0.7.1
     # via odfpy
 deprecated==1.2.18
@@ -182,6 +184,8 @@ idna==3.15
     #   requests
     #   trio
     #   url-normalize
+invoke==3.0.3
+    # via paramiko
 isodate==0.7.2
     # via
     #   apache-superset (pyproject.toml)
@@ -419,8 +423,6 @@ sqlglot==30.8.0
     # via
     #   apache-superset (pyproject.toml)
     #   apache-superset-core
-deepnote-sshtunnel==1.0.0
-    # via apache-superset (pyproject.toml)
 tabulate==0.10.0
     # via apache-superset (pyproject.toml)
 trio==0.30.0
