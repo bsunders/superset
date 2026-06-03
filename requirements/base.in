@@ -35,6 +35,11 @@ pyarrow>=20.0.0,<21.0.0
 pyopenssl>=26.0.0,<27.0.0
 # Security: CVE-2026-25645 (MEDIUM) - Insecure Temporary File
 requests>=2.33.0,<3.0.0
+# Security: CVE-2026-44405 - SHA-1 allowed in paramiko RSA key handling
+paramiko>=5.0.0,<6.0.0
+# deepnote-sshtunnel replaces sshtunnel for paramiko 5.x compatibility
+# (sshtunnel 0.4.0 references removed paramiko.DSSKey, see pahaz/sshtunnel#302)
+deepnote-sshtunnel>=1.0.0,<2.0.0
 
 # 5.0.0 has a sensitive deprecation used in other libs
 # -> https://github.com/aio-libs/async-timeout/blob/master/CHANGES.rst#500-2024-10-31
