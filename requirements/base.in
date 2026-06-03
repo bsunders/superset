@@ -18,6 +18,10 @@
 #
 # Security: CVE-2026-21441 - decompression bomb bypass on redirects
 urllib3>=2.6.3,<3.0.0
+# Security: CVE-2026-27205 - Flask session access vulnerability
+flask>=3.1.3,<4.0.0
+# Flask 3.x requires flask-sqlalchemy>=3.0 (2.x imports removed internal _app_ctx_stack)
+flask-sqlalchemy>=3.0.0,<3.1.0
 # Security: CVE-2026-27199 - Windows device name handling in safe_join
 werkzeug>=3.1.6,<4.0.0
 # Security: CVE-2025-68146 - TOCTOU symlink vulnerability

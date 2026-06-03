@@ -16,7 +16,7 @@
 # under the License.
 from typing import Any
 
-from flask_sqlalchemy import BaseQuery
+from flask_sqlalchemy.query import Query as BaseQuery
 
 from superset import security_manager
 from superset.models.sql_lab import Query
