@@ -30,7 +30,7 @@ from paramiko import RSAKey
 if not hasattr(paramiko, "DSSKey"):
     from paramiko import PKey
 
-    class _DSSKeyStub(PKey):  # type: ignore[misc]
+    class _DSSKeyStub(PKey):
         """Placeholder for removed DSA key support."""
 
         name = "ssh-dss"
