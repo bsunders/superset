@@ -19,9 +19,25 @@ import logging
 from io import StringIO
 from typing import TYPE_CHECKING
 
-import sshtunnel
+import paramiko
 from flask import Flask
 from paramiko import RSAKey
+
+# Compatibility shim for sshtunnel 0.4.0 with paramiko 4.0+.
+# paramiko 4.0 removed the DSA (DSSKey) algorithm; sshtunnel still references
+# paramiko.DSSKey in its key-type lookup dict. Superset does not use DSA keys,
+# so providing a placeholder prevents the AttributeError at runtime.
+if not hasattr(paramiko, "DSSKey"):
+    from paramiko import PKey
+
+    class _DSSKeyStub(PKey):
+        """Placeholder for removed DSA key support."""
+
+        name = "ssh-dss"
+
+    paramiko.DSSKey = _DSSKeyStub  # type: ignore[attr-defined]
+
+import sshtunnel  # noqa: E402
 
 from superset.commands.database.ssh_tunnel.exceptions import SSHTunnelDatabasePortError
 from superset.databases.utils import make_url_safe
